@@ -1,7 +1,245 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Delivery Drone Project</h1>
-<p>The above source code and datasets are related to a paper: (Reusing Delivery Drones for Urban Crowdsensing) which is under the review of IEEE TMC. They are consisting of (i) the energy consumption dataset for the delivery drone; (ii) the dataset for the delivery stations of 7 main express companies in Beijing City; (iii) the source code of the proposed algorithms, RT-Drone and RTW-Drone; The detailed introductions are specified in the README files of each folder. If you have any question about the datasets and code, please send email to us (xiangchaocan@cqu.edu.cn).</p>
-</body>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="conflictreaper">
+    <meta name="author" content="chenjian">
+    <link rel="icon" href="favicon.ico">
+
+    <title>APIChecker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer.css" rel="stylesheet">
+  
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style type="text/css">
+        table{
+            border-top:2px solid;
+            border-bottom:2px solid;
+        }
+        td{
+            padding-left: 5px;
+			padding-right: 5px;
+            vertical-align: center;
+			border-top:1px solid;
+			border-bottom:1px solid;
+        }
+		.tdleft{
+			padding-left: 5px;
+			padding-right: 5px;
+            vertical-align: center;
+			border-top:1px solid;
+			border-bottom:1px solid;
+			border-left:1px solid;
+		}
+		li{
+			line-height: 2em;
+		}
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+		<div class="container">
+			<div class="page-header">
+				<h2>Landing Machine Learning onto Market-Scale Mobile Malware Detection</h2>
+			</div>
+			<!-- <p class="lead">
+				This project (<a target="_blank" href="https://github.com/ConflictReaper/ConflictReaper">source code</a>) strives towards understanding and improving collaboration in cloud storage services.
+			</p> -->
+			<!--<h2>Repositories</h2>-->
+			<h2>
+			1. Background
+			</h2>
+			<p style="line-height: 2em; text-indent: 2em">
+	            App markets, despite being crucial to today’s mobile ecosystem, have become the most powerful malware delivery channel since they in fact “lend credibility” to malicious apps in a way. 
+		In the past decade, machine learning (ML) techniques have been widely explored for automated, robust malware detection.
+		Unfortunately to date, we have yet to see a ML-based malware detection solution deployed at market scales. 
+		To understand the real-world challenges, we undertake a collaborative study with a major Android app market (Market- X) offering us large-scale ground-truth data. 
+		In summary, we find the key to successfully developing such systems is manifold, including <I>feature selection/engineering</I>, <I>dynamic analysis speed</I>, <I>developer engagement</I>, and <I>model evolution</I>. 
+		Also, failure in any of the above aspects would lead to the “wooden barrel effect” of the whole system. 
+		This paper documents our judicious design choices and first-hand deployment experiences in building such a ML-powered malware detection system. 
+		It has been operational at Market-X for over one year, using a single commodity server to vet ∼10K apps every day, and achieves an overall precision of 98% and recall of 96% with an average per-app scan time of 1.3 minutes.
+			</p>
+			<!--<p>
+				For the ease of use, file collaboration is made transparent by almost all the cloud storage services today through automatic file synchronization.
+			</p>
+			<p>
+				However, collaboration inevitably introduces conflicts -- unexpected and even mysterious events.
+			</p>
+			
+			
+			<p>
+				To uncover the root causes of these unexpected, counterintuitive patterns, we conduct a comparative measurement study of eight mainstream cloud storage services: Dropbox, OneDrive, Google Drive, iCloud Drive, Box, SugarSync, Seafile, and NutStore.
+			</p>
+			<p>
+				Our study leads to a number of findings that explain these unexpected and undesired patterns described in Table 1.
+		</p> -->
+			<h2>
+			2. Dataset
+			</h2>
+			<p style="line-height: 2em; text-indent: 2em">
+				<ul>
+					<li>We release our extracted features of an unbiased sample of the 500K apps studied in our Google Driver.  Because some files are larger than 100M, we storage the files in the Google Driver (<a href="https://drive.google.com/open?id=1f53dnCMQJNDYlRTG4cT-MwWSki20oo9t">APIChekcer</a>).</li> 
+				<li>Our paper has been conditionally accepted for <a href="https://www.eurosys2020.org/">EuroSys 2020</a>.</li>
+	  			<li>Please cite this study when using the data.</li>
+					</ul>
+				<table border="1">
+<tr>
+<th>File Name</th>
+<th>Detailed Information</th>
+</tr>
+<tr>
+<td>apichecker.pkl</td>
+<td>dataset file including features and labels</td>
+</tr>
+<tr>
+<td>apk_detect_result.txt</td>
+<td>the detecting results of APKs from Market-X </td>
+</tr>
+<tr>
+<td>running_logs/</td>
+<td>the testing logs of apps tested in 18 Feb, 2018</td>
+</tr>
+<tr>
+<td>src/</td>
+<td>source codes files in our experiments</td>
+</tr>
+</table>
+			</p>
+			<h2>
+			3. Classification Model Configurations
+			</h2>
+			<p style="line-height: 2em; text-indent: 2em">
+				We  release the model configurations in the following table.
+<table border="1">
+<tr>
+<th>Algorithm</th>
+<th>Training Model in Sklearn</th>
+</tr>
+<tr>
+<td>Naive Bayes</td>
+<td>BernoulliNB()</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>RandomForestClassifier(n_estimators=15)</td>
+</tr>
+<tr>
+<td>CART Decision Tree</td>
+<td>DecisionTreeClassifier()</td>
+</tr>
+<tr>
+<td>Logistic Regression</td>
+<td>LinearRegression()</td>
+</tr>
+<tr>
+<td>K-Nearest Neighbor</td>
+<td>KNeighborsClassifier(n_neighbors=5,weights=’uniform’, algorithm=’auto’)</td>
+</tr>
+<tr>
+<td>Support Vector Machine</td>
+<td>svm.SVC(gamma='auto')</td>
+</tr>
+<tr>
+<td>Artificial Neural Network</td>
+<td>MLPClassifier(hidden_layer_sizes=(100), solver=’adam’, alpha=0.0001)</td>
+</tr>
+<td>Deep Neural Network</td>
+<td>MLPClassifier(hidden_layer_sizes=(100,75,50,20),solver='adam', alpha=0.0001)</td>
+</tr>
+<tr>
+<td>Gradient Boosting Decision Tree</td>
+<td>GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=0)</td>
+</tr>
+</table>
+			</p>
+			<h2>
+			4. Lightweight Emulator
+			</h2>
+			<p style="line-height: 2em; text-indent: 2em">
+				We upload our lightweight emulator in the Google Driver:<a href="https://drive.google.com/open?id=1budNOnNkSw-_yfZk5ugupmfSz5wUgIWO">Android x86 emulator</a>. In the emulator, we install the Xposed framework tool and the hook module for hooking 426 APIs. 
+			</p>
+			<h2>
+			5. API Set
+			</h2>
+			<p style="line-height: 2em; text-indent: 2em">
+		We study ground-truth data from one of the world’s largest Android app markets (called Market-X), 
+		and extract 426 key APIs (out of 50K APIs) which generally belong to the following three categories (with some overlap). 
+	        The 426 key APIs (out of 50K APIs) are of fundamental importance to malware detection.
+			</p>
+			<ul>
+				
+				<li>
+				<b>Highly-Correlation API:</b> 260 framework APIs that have significant statistical correlations (|PCC| > 0.2)  with the malice of apps. 
+				</li>
+<li>
+				<b>Restricted API:</b> 112 framework APIs whose usage should be restricted with dangerous-level permissions and those signature-level permissions with certain privileges.
+				</li>
+				<li>
+				<b>	Sensitive Operation API:</b> 70 framework APIs that can enable sensitive operations for conducting certain attacks (e.g., ransomware and background malware).
+				</li>
+			</ul>
+	
+			<div id='table-container'></div>
+			
+			<p></p>
+			<p style="text-align:center">
+				Table 1: The 426 key APIs which generally belong to the three categories (with some overlap).
+			</p>
+			<h2>
+			6. Contact
+			</h2>
+			
+			<ul>
+				<li> <font size="4" face="arial" color="black">gongliangyi@gmail.com</font></li>
+			   <li><font size="4" face="arial" color="black">lizhenhua1983@tsinghua.edu.cn</font></li>
+			</ul>
+			
+			<!--<img class="img-responsive center-block" width="600px" alt="architecture" src="./module.jpg">
+			<p></p>
+			<p style="text-align:center">
+				Figure 2: System structure of ConflictReaper with modularized components.
+			</p>-->
+		</div>
+
+	<!--<footer class="footer">-->
+		<!--<div class="container">-->
+			<!--<p class="text-muted">Place sticky footer content here.</p>-->
+		<!--</div>-->
+	<!--</footer>-->
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="js/csv_to_html_table.js"></script>
+
+    <script>
+  				CsvToHtmlTable.init({
+    			csv_path: './API Set.csv', 
+   				element: 'table-container', 
+    			allow_download: true,
+    			csv_options: {separator: ',', delimiter: '"'},
+    			datatables_options: {"paging": true, "pageLength": 10, "ordering": false}
+  				});
+	</script>
+
+  
+  </body>
 </html>
